@@ -1,0 +1,21 @@
+/** @format */
+
+@import url("https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css");
+body {
+  margin: 0;
+}
+
+.box_row {
+  display: flex;
+  gap: 15px;
+}
+.box_row .box-grid {
+  width: 220px;
+  height: 200px;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+}
+
+ul li {
+  list-style: none;
+}

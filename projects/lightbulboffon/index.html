@@ -1,0 +1,54 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Charging-Battery</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <section class="main">
+      <div>
+        <h4>
+          Battery Charging
+          <span id="charging" class="fa"></span>
+        </h4>
+      </div>
+    </section>
+    <script>
+      const chargeLoad = () => {
+        let charge = document.getElementById("charging");
+        charge.innerHTML = "&#xf244";
+        charge.style.color = "red";
+        setTimeout(() => {
+          charge.innerHTML = "&#xf243";
+          charge.style.color = "red";
+        }, 1000);
+        setTimeout(() => {
+          charge.innerHTML = "&#xf242";
+          charge.style.color = "yellow";
+        }, 2000);
+        setTimeout(() => {
+          charge.innerHTML = "&#xf241";
+          charge.style.color = "deep yellow";
+        }, 3000);
+        setTimeout(() => {
+          charge.innerHTML = "&#xf240";
+          charge.style.color = "green";
+        }, 4000);
+      };
+      chargeLoad();
+
+      setInterval(chargeLoad, 5000);
+    </script>
+  </body>
+</html>

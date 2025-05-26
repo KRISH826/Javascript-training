@@ -1,0 +1,76 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <section
+      class="main_coontent bg-success bg-gradient vh-100 d-flex align-items-center justify-content-center"
+      id="content"
+    >
+      <div class="card" style="width: 50rem">
+        <div class="card-body py-4 text-center">
+          <h4>Best Jokes to make your day</h4>
+          <div class="joke">
+            <p class="my-3" id="jokes">Joke is loading....</p>
+          </div>
+          <button id="jokebtn" class="btn btn-dark shadow-sm">
+            Next Jokes
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- GET https://icanhazdadjoke.com/ -->
+    <script>
+      const jokeBtn = document.getElementById("jokebtn");
+      const jokesThing = document.getElementById("jokes");
+
+      //   with promise
+
+      //   const setHeader = {
+      //     headers: {
+      //       Accept: "application/json",
+      //     },
+      //   };
+
+      //   const generateJokes = () => {
+      //     fetch(" https://icanhazdadjoke.com/", setHeader)
+      //       .then((res) => res.json())
+      //       .then((data) => {
+      //         jokesThing.innerHTML = data.joke;
+      //       })
+      //       .catch((err) => {
+      //         console.log(err);
+      //       });
+      //   };
+
+      //   jokeBtn.addEventListener("click", generateJokes);
+
+      //   with async await
+
+      async function generateJokes() {
+        const response = await fetch("https://icanhazdadjoke.com/", {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+          },
+        });
+        const data = await response.json();
+        jokesThing.innerHTML = data.joke; // Extracting data as a JSON Object from the response
+      }
+
+      jokeBtn.addEventListener("click", generateJokes);
+
+      //   with async await
+    </script>
+  </body>
+</html>
